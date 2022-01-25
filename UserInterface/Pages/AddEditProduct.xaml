@@ -16,7 +16,9 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="30"
-                   x:Name="HeaderBlock"/>
+                   x:Name="HeaderBlock" HorizontalAlignment="Left" Margin="10" FontStyle="Italic" FontWeight="DemiBold">
+            
+        </TextBlock>
 
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>

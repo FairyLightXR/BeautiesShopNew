@@ -38,7 +38,7 @@ namespace BeautiesShop.UserInterface.Pages
             var allManufacturer = Transition.Datacontext.Manufacturer.ToList();
             ManufacturerCBox.ItemsSource = allManufacturer;
 
-            //DataContext = addProduct;
+            DataContext = addProduct;
 
             //В разработке
             //AttachedProdLV.ItemsSource = Transition.Datacontext.AttachedProduct.ToList();
