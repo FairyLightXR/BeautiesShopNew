@@ -127,12 +127,22 @@ namespace BeautiesShop.UserInterface.Pages
 
         private void ViewProduct_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var tempCountItems = ViewProduct.SelectedItems.Count;
 
+            if (tempCountItems != 0)
+            {
+                if (tempCountItems == 1)
+                    Transition.MainFrame.Navigate(new AddEditProduct(ViewProduct.SelectedItem as Product));
+                else
+                    MessageBox.Show("Необходимо выбрать конкретный продукт", "Редактирование продукта", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+                MessageBox.Show("Выберите продукт для редактирования", "Редактирование продукта", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            Transition.MainFrame.Navigate(new AddEditProduct(null));
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)

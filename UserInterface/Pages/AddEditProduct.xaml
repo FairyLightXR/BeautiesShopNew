@@ -5,10 +5,83 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BeautiesShop.UserInterface.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+       d:DesignHeight="600" d:DesignWidth="1200"
       Title="AddEditProduct">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="30"
+                   x:Name="HeaderBlock"/>
+
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <Image Source="/UserInterface/Logos/beauty_logo.png" Margin="10"
+                       Width="175" Height="175" Stretch="Fill"
+                       x:Name="ImageProduct"/>
+                <WrapPanel>
+                    <RadioButton Content="Активен" IsChecked="{Binding IsActive}"
+                                 Margin="10"/>
+                    <RadioButton Content="Не активен" IsChecked="True"
+                                 Margin="10"/>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel>
+                <WrapPanel>
+                    <TextBlock Text="Наименование:" Width="150" TextAlignment="Right"/>
+                    <TextBox Text="{Binding Title}"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Цена:" Width="150" TextAlignment="Right"/>
+                    <TextBox Text="{Binding Cost, StringFormat={}{0:0.00}}"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Производитель:" Width="150" TextAlignment="Right"/>
+                    <ComboBox SelectedItem="{Binding Manufacturer}" DisplayMemberPath="Name" SelectedValuePath="ID"
+                              x:Name="ManufacturerCBox"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Описание:" Width="150" Margin="0, 10"
+                               VerticalAlignment="Top" TextAlignment="Right"/>
+                    <TextBox Text="{Binding Description}" Height="80"
+                             TextWrapping="Wrap"/>
+                </WrapPanel>
+            </StackPanel>
+            
+            <ListView Width="400" Margin="100, 0, 0, 0"
+                      x:Name="AttachedProdLV">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding MainImagePath, StringFormat=../{0}}"
+                                                   Visibility="Collapsed" x:Name="ImagePath"/>
+                            <Border BorderBrush="{StaticResource AttentionBackground}" BorderThickness="3"
+                                            Background="Transparent" Margin="5"
+                                            HorizontalAlignment="Center">
+                                <Image Source="{Binding Text, ElementName=ImagePath}" Height="150" Width="150" Stretch="Fill"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Left">
+            <Button Content="Сохранить"
+                    x:Name="SaveBtn" Click="SaveBtn_Click"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Right">
+            <Button Content="Загрузить фото"
+                    x:Name="DownloadImageBtn" Click="DownloadImageBtn_Click"/>
+        </WrapPanel>
     </Grid>
 </Page>

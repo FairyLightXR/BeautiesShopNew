@@ -16,7 +16,7 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <TextBlock FontSize="35" HorizontalAlignment="Right" Margin="15" Foreground="Black">
+            <TextBlock FontSize="35" HorizontalAlignment="Center" Margin="15" Foreground="Black">
                 <Italic>Магазин "Красавицы"</Italic>
             </TextBlock>
             <Image Source="/UserInterface/Logos/beauty_logo.png" HorizontalAlignment="Left" Stretch="Uniform" Margin="5"/>
