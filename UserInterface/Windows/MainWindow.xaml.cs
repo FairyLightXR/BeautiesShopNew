@@ -1,4 +1,5 @@
 ﻿using BeautiesShop.Other;
+using BeautiesShop.UserInterface.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace BeautiesShop
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new ProductView());
+            Transition.MainFrame = MainFrame;
 
         }
 

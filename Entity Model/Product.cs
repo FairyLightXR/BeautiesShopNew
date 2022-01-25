@@ -30,7 +30,17 @@ namespace BeautiesShop.Entity_Model
         public string Description { get; set; }
         public string MainImagePath { get; set; }
         public Nullable<int> ManufacturerID { get; set; }
-    
+
+        public string ActiveProd
+        {
+            get
+            {
+                if (IsActive)
+                    return "активен";
+                else
+                    return "неактивен";
+            }
+        }
         public virtual Manufacturer Manufacturer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }
