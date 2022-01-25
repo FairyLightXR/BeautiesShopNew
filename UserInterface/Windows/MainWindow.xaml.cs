@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeautiesShop.Other;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace BeautiesShop
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        {
+            if (Transition.MainFrame.CanGoBack)
+                BtnBack.Visibility = Visibility.Visible;
+            else
+                BtnBack.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Transition.MainFrame.GoBack();
         }
     }
 }

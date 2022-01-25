@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -51,24 +60,76 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="UserInterface\Style\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="UserInterface\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Entity Model\BeautyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BeautyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\BeautyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\BeautyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BeautyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\Client.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\ClientService.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\DocumentByService.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\Gender.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\Manufacturer.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\Product.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\ProductPhoto.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\ProductSale.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\Service.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\ServicePhoto.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\sysdiagrams.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Model\Tag.cs">
+      <DependentUpon>BeautyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Style\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="UserInterface\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Other\Transition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +147,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Entity Model\BeautyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BeautyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity Model\BeautyModel.edmx.diagram">
+      <DependentUpon>BeautyModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +162,130 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserInterface\Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserInterface\Logos\beauty_logo.ico" />
+    <Resource Include="UserInterface\Logos\beauty_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserInterface\Товары салона красоты\1781670-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781674-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781675-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781676-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781678-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781679-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781680-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781693-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781695-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781696-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1781711-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\1953276-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\2008486-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\2008488-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\2262226-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\2351755-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\2697576-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\2697586-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3388879-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3432442-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3432453-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3432465-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3472591-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3472601-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3472602-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3472604-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\3472608-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\5427580-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\5625224-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6433979-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6433981-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6433982-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6433984-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556449-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556451-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556452-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556453-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556454-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556455-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556457-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556458-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556459-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556460-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556461-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556462-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556463-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556464-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556465-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556466-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6556469-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6691687-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6691688-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6953158-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6953159-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6953160-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6953169-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6953176-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6953177-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6964195-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6964196-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6964197-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6964198-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\6964199-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064314-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064315-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064320-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064322-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064323-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064324-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064326-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064330-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064333-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064334-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7064335-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7293278-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7299376-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7299377-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7299378-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7528031-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7528032-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7528034-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7847905-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7847906-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\7889950-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631437-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631438-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631439-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631442-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631443-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631445-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631446-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631447-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9631448-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939700-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939701-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939704-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939709-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939710-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939714-1.jpg" />
+    <Resource Include="UserInterface\Товары салона красоты\9939719-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity Model\BeautyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BeautyModel.Context.cs</LastGenOutput>
+      <DependentUpon>BeautyModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity Model\BeautyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BeautyModel.edmx</DependentUpon>
+      <LastGenOutput>BeautyModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

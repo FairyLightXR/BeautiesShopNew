@@ -1,0 +1,55 @@
+﻿<Application x:Class="BeautiesShop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BeautiesShop"
+             StartupUri="../Windows/MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BasicBackground" Color="#FFFFFFFF"></SolidColorBrush>
+        <SolidColorBrush x:Key="AdditionalBackground" Color="#FFE1E4FF"></SolidColorBrush>
+        <SolidColorBrush x:Key="AttentionBackground" Color="#FFFF4A6D"></SolidColorBrush>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Tahoma"></Setter>
+            <Setter Property="Padding" Value="0,4"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="ListViewTBlock">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontFamily" Value="Tahoma"></Setter>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Width" Value="175"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Background" Value="{StaticResource AttentionBackground}"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Padding" Value="0,4"></Setter>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+    </Application.Resources>
+</Application>
